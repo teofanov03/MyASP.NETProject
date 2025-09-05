@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoBlog.Data;
@@ -6,6 +7,7 @@ using TodoBlog.Models;
 
 namespace TodoBlog.Controllers
 {
+    [Authorize]
     public class TasksController : Controller
     {
         private readonly AppDbContext _db;

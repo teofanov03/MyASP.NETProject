@@ -293,3 +293,4 @@ C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Release\net8.0\refint\TodoBl
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Release\net8.0\TodoBlog.pdb
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Release\net8.0\TodoBlog.genruntimeconfig.cache
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Release\net8.0\ref\TodoBlog.dll
+C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Release\net8.0\TodoBlog.sourcelink.json

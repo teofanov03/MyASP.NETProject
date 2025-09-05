@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using TodoBlog.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using TodoBlog.Models;
 
 namespace TodoBlog.Controllers
 {
+    [Authorize]
     public class ShopController : Controller
     {
         private readonly List<Product> _products = new()
