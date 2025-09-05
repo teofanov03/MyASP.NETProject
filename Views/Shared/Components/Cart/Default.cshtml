@@ -1,0 +1,15 @@
+﻿@model int
+
+<a class="btn btn-outline-light position-relative" asp-controller="Shop" asp-action="Cart">
+    <img src="~/Images/shopping-cart.png" alt="Cart" style="height:24px;" />
+    @if (Model > 0)
+    {
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            @Model
+        </span>
+    }
+    else
+    {
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    }
+</a>

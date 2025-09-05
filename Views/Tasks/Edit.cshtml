@@ -1,0 +1,45 @@
+﻿@model TodoBlog.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Edit Task";
+}
+
+<h2 class="mb-4">Edit Task</h2>
+
+<form asp-action="Edit" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" maxlength="30" /> 
+        <small class="form-text text-muted">Max 30 characters.</small>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea asp-for="Description"
+                  class="form-control"
+                  rows="4"
+                  maxlength="200"
+                  style="resize:none;"></textarea>
+        <small class="form-text text-muted">Max 200 characters.</small>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="IsDone" class="form-check-input" type="checkbox" id="IsDoneCheck" />
+        <label asp-for="IsDone" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

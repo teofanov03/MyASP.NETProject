@@ -1,0 +1,100 @@
+﻿@model List<TodoBlog.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h2 class="mb-4">Your Cart</h2>
+
+@if (!Model.Any())
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr data-id="@item.ProductId">
+                    <td>@item.ProductName</td>
+                    <td>$@item.Price.ToString("0.00")</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-secondary decrease-btn" data-id="@item.ProductId" @(item.Quantity <= 1 ? "disabled" : "")>-</button>
+                        <span class="mx-2 quantity-@item.ProductId">@item.Quantity</span>
+                        <button class="btn btn-sm btn-outline-secondary increase-btn" data-id="@item.ProductId">+</button>
+                    </td>
+                    <td class="total-@item.ProductId">$@item.Total.ToString("0.00")</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger remove-btn" data-id="@item.ProductId">Remove</button>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="3" class="text-end fw-bold">Total:</td>
+                <td colspan="2" class="fw-bold" id="cart-total">$@Model.Sum(c => c.Total).ToString("0.00")</td>
+            </tr>
+        </tbody>
+    </table>
+}
+<a asp-action="Index" class="btn btn-secondary">Continue Shopping</a>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            function updateCartTotal(cartTotal) {
+                $("#cart-total").text("$" + cartTotal.toFixed(2));
+            }
+
+            $(".increase-btn").click(function () {
+                var id = $(this).data("id");
+                $.post("/Shop/IncreaseQuantity", { id: id }, function (data) {
+                    if (data.success) {
+                        $(".quantity-" + id).text(data.quantity);
+                        $(".total-" + id).text("$" + data.total.toFixed(2));
+                        updateCartTotal(data.cartTotal);
+
+                        if (data.quantity > 1) {
+                            $(".decrease-btn[data-id='" + id + "']").prop("disabled", false);
+                        }
+                    }
+                });
+            });
+
+            $(".decrease-btn").click(function () {
+                var id = $(this).data("id");
+                $.post("/Shop/DecreaseQuantity", { id: id }, function (data) {
+                    if (data.success) {
+                        $(".quantity-" + id).text(data.quantity);
+                        $(".total-" + id).text("$" + data.total.toFixed(2));
+                        updateCartTotal(data.cartTotal);
+
+                        if (data.quantity <= 1) {
+                            $(".decrease-btn[data-id='" + id + "']").prop("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $(".remove-btn").click(function () {
+                var id = $(this).data("id");
+                $.post("/Shop/RemoveItem", { id: id }, function (data) {
+                    if (data.success) {
+                        $("tr[data-id='" + id + "']").remove();
+                        updateCartTotal(data.cartTotal);
+                    }
+                });
+            });
+        });
+    </script>
+}

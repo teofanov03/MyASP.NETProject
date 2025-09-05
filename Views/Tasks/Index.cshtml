@@ -1,0 +1,49 @@
+﻿@model List<TodoBlog.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "ToDo";
+}
+
+<h2 class="mb-4">ToDo</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">New Task</a>
+</p>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Done</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>
+                    <form asp-action="Toggle" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@t.Id" />
+                        <button class="btn btn-sm @(t.IsDone ? "btn-success" : "btn-outline-secondary")" type="submit">
+                            @(t.IsDone ? "✓" : "○")
+                        </button>
+                    </form>
+                </td>
+                <td class="wrap-text" title="@t.Title">
+                    @(t.Title.Length > 30 ? t.Title.Substring(0, 30) + "..." : t.Title)
+                </td>
+                <td class="wrap-text" title="@t.Description">
+                    @(t.Description.Length > 50 ? t.Description.Substring(0, 50) + "..." : t.Description)
+                </td>
+                <td>@(t.DueDate.HasValue? t.DueDate.Value.ToString("dd.MM.yyyy") : "-")</td>
+                <td>
+                    <a class="btn btn-sm btn-warning me-1" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@t.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

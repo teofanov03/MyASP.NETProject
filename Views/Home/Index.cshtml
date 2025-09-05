@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center my-5">
+    <h1 class="display-4 mb-4">Welcome to MyProject!</h1>
+    <p class="lead">Manage your tasks, read interesting blogs, and shop your favorite items — all in one place.</p>
+</div>
+
+<div class="row text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">ToDo List</h3>
+                <p class="card-text">Keep track of your daily tasks and stay productive. Add, edit, and complete tasks easily.</p>
+                <a class="btn btn-primary" href="@Url.Action("Index", "Tasks")">Go to ToDo List</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Blog</h3>
+                <p class="card-text">Read and create posts. Share your thoughts, and interact with other users through comments.</p>
+                <a class="btn btn-primary" href="@Url.Action("Index", "Blog")">Go to Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Shop</h3>
+                <p class="card-text">Browse and purchase your favorite products conveniently online.</p>
+                <a class="btn btn-primary mt-4"  href="@Url.Action("Index", "Shop")">Go to Shop</a>
+            </div>
+        </div>
+    </div>
+</div>
