@@ -7,7 +7,7 @@ using TodoBlog.Models;
 
 namespace TodoBlog.Controllers
 {
-    [Authorize]
+    
     public class TasksController : Controller
     {
         private readonly AppDbContext _db;

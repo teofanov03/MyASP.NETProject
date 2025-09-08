@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TodoBlog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6cf68bd1fff30ccb92bd3bd36ec694ba19c3b0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca31b94a1c2aea0c0d8679a62a4a645dfebabbcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TodoBlog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TodoBlog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -294,3 +294,7 @@ C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\runtimes\win-x6
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Debug\net8.0\TodoBlog.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\djordje\source\repos\TodoBlog\TodoBlog\obj\Debug\net8.0\TodoBlog.sourcelink.json
+C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\djordje\source\repos\TodoBlog\TodoBlog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
